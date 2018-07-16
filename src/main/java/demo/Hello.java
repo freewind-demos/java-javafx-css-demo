@@ -17,7 +17,8 @@ public class Hello extends Application {
     public void start(Stage primaryStage) {
         primaryStage.setTitle("Hello");
         VBox root = new VBox() {{
-            getChildren().add(fromCssFile());
+            getChildren().add(fromCssFile1());
+            getChildren().add(fromCssFile2());
             getChildren().add(defineStyleDirectly());
             getChildren().add(defineCssClassesInString());
         }};
@@ -25,12 +26,22 @@ public class Hello extends Application {
         primaryStage.show();
     }
 
-    private HBox fromCssFile() {
+    private HBox fromCssFile1() {
         return new HBox() {{
             setPadding(new Insets(10));
             this.getStylesheets().add("hello.css");
             this.getStyleClass().add("my-rect");
-            getChildren().add(new Label("From Css File"));
+            getChildren().add(new Label("From css file using direct path"));
+        }};
+    }
+
+    private HBox fromCssFile2() {
+        return new HBox() {{
+            setPadding(new Insets(10));
+            String path = this.getClass().getClassLoader().getResource("hello.css").toExternalForm();
+            this.getStylesheets().add(path);
+            this.getStyleClass().add("my-rect");
+            getChildren().add(new Label("From css file using resource path"));
         }};
     }
 
