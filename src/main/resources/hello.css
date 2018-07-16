@@ -1,3 +1,7 @@
-.my-rect {
+.my-rect1 {
     -fx-background-color: RED
+}
+
+.my-rect2 {
+    -fx-background-color: YELLOW
 }

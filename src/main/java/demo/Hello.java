@@ -30,7 +30,7 @@ public class Hello extends Application {
         return new HBox() {{
             setPadding(new Insets(10));
             this.getStylesheets().add("hello.css");
-            this.getStyleClass().add("my-rect");
+            this.getStyleClass().add("my-rect1");
             getChildren().add(new Label("From css file using direct path"));
         }};
     }
@@ -40,7 +40,7 @@ public class Hello extends Application {
             setPadding(new Insets(10));
             String path = this.getClass().getClassLoader().getResource("hello.css").toExternalForm();
             this.getStylesheets().add(path);
-            this.getStyleClass().add("my-rect");
+            this.getStyleClass().add("my-rect2");
             getChildren().add(new Label("From css file using resource path"));
         }};
     }
